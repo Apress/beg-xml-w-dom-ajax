@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This XML document describes a DVD library -->
+<library>
+	<DVD id="1">
+		<title>Breakfast at Tiffany's</title>
+		<format>Movie</format>
+		<genre>Classic</genre>
+	</DVD>
+	<DVD id="2">
+		<title>Contact</title>
+		<format>Movie</format>
+		<genre>Science fiction</genre>
+	</DVD>
+	<DVD id="3">
+		<title>Little Britain</title>
+		<format>TV Series</format>
+		<genre>Comedy</genre>
+	</DVD>
+</library>

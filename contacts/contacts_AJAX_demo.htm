@@ -1,0 +1,126 @@
+<html>
+	<head>
+		<title>Contacts Example</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<style>
+     body, div, td, th {
+       font-family: Arial, Verdana, sans-serif;
+       font-size: 12px;
+       padding: 6px;
+     }
+     .emphasis {
+       font-weight: bold;
+     }
+     
+		</style>
+		<script type="text/javascript">
+      var xmlContacts = null;
+      var xslContacts = null;
+      var xmlDetails = null;
+      var xslDetails = null;
+      var xmlhttp=null;
+      var xslhttp=null;
+      
+      function init() {
+          sendRequest('contacts_summary.xml', 'display.xslt', xmlReady, xslReady);
+      }
+      
+      function sendRequest(xmlURL, xslURL, xmlHandler, xslHandler) {
+        xmlhttp = setupXMLHR();
+        if (xmlhttp){
+          xmlhttp.onreadystatechange=xmlHandler;
+          xmlhttp.open("GET", xmlURL, true);
+          xmlhttp.send(null);
+        }
+        xslhttp = setupXMLHR();
+        if (xslhttp){
+          xslhttp.onreadystatechange=xslHandler;
+          xslhttp.open("GET", xslURL, true);
+          xslhttp.send(null);
+        }
+      }
+      
+      function setupXMLHR() {
+          var request = null;
+          if (window.XMLHttpRequest){
+            request=new XMLHttpRequest();
+          } 
+          else if (window.ActiveXObject){    
+            try {
+              request = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch(e) {
+              try {
+                  request = new ActiveXObject("Microsoft.XMLHTTP");
+              } catch(e) {
+                  request = false;
+               }
+             }
+          }
+        
+        return request;
+      }  
+  
+      function xmlReady() {
+        if (xmlhttp.readyState==4){
+         if (xmlhttp.status==200) {
+            xmlContacts = xmlhttp.responseXML;
+           doTransform("contactDetails", xmlContacts, xslContacts);
+           }
+        }      
+      }
+      
+      function xslReady() {
+        if (xslhttp.readyState==4){
+         if (xslhttp.status==200) {            
+          xslContacts = xslhttp.responseXML;          
+          doTransform("contactDetails", xmlContacts, xslContacts);
+         }
+       }
+      }
+            
+      function doTransform(docElement, xmlDoc, xslDoc) {
+          if (xmlDoc == null || xslDoc == null) return;
+            if (window.ActiveXObject){
+              document.getElementById(docElement).innerHTML=xmlDoc.transformNode(xslDoc);
+              }
+           else{
+              var xsltProcessor = new XSLTProcessor();
+              xsltProcessor.importStylesheet(xslDoc);
+              var fragment =xsltProcessor.transformToFragment(xmlDoc,document);
+              document.getElementById(docElement).innerHTML = "";
+              document.getElementById(docElement).appendChild(fragment);
+           }
+      }
+      
+      function showPerson(intPersonID) {
+        var url = "contacts" + intPersonID + ".xml";
+       sendRequest(url, 'details.xslt', xmlDetailsReady, xslDetailsReady);
+      }
+      
+      function xmlDetailsReady() {
+        if (xmlhttp.readyState==4){
+         if (xmlhttp.status==200) {
+            xmlDetails = xmlhttp.responseXML;
+            doTransform("displayDetails", xmlDetails, xslDetails);
+           }
+        }      
+      }
+      
+      function xslDetailsReady() {
+         if (xslhttp.readyState==4){
+           if (xslhttp.status==200) {
+              xslDetails = xslhttp.responseXML;
+              doTransform("displayDetails", xmlDetails, xslDetails);
+            }      
+        }
+     }
+      
+  </script>
+	</head>
+	<body onLoad="init();">
+		<div id="contactDetails">Loading...</div>
+		
+		<div id="displayDetails"></div>
+		
+	</body>
+</html>

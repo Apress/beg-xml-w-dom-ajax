@@ -1,0 +1,28 @@
+title{
+  position:fixed;
+  height: 50px;
+  width: 100%;
+  color: #FFFFFF;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #000000;
+}
+paragraph {
+  display:block;
+  padding:10px;
+  border:solid 2px #A3A3A3;
+  margin: 10px;
+
+}
+pullQuote {
+  float:right;
+  width:20%;
+  font-style:italic;
+  border:solid 1px #CCCCCC;
+  padding:10px;
+  margin:10px;
+  background-color: #FFFFFF;
+}
+
+
+

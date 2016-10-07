@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="attributesCSS.css"?>
+<document>
+  <paragraph style="normal">
+    Here is some text in a paragraph whose <code>style</code> 
+    attribute has a value of <code>normal</code>.
+  </paragraph>
+  <paragraph style="summary">
+    Here is some text in a paragraph whose <code>style</code> 
+    attribute has a value of <code>summary</code>.
+  </paragraph>
+  <paragraph style="code foreground">
+    Here is some text in a paragraph whose <code>style</code> 
+    attribute contains the value of <code>code</code> or <code>foreground</code>.
+  </paragraph>
+  <paragraph style="code-background">
+    Here is some text in a paragraph whose <code>style</code> 
+    attribute starts with <code>code background</code>.
+  </paragraph>
+</document>

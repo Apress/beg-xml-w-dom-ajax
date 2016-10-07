@@ -1,0 +1,21 @@
+paragraph[style] {
+  font-size:12px;
+  color:#0000FF;
+  display: block;
+}
+paragraph[style=summary] {
+  font-style:italic;
+  font-size: 16px;
+}
+paragraph[style~=foreground] {
+  font-family:courier, serif;
+  font-weight:bold;
+  background-color:#CCCCCC; 
+}
+paragraph[style|=code] {
+  font-family:courier, serif;
+  font-weight:bold;
+  background-color:#FFFFFF;
+  border-style:solid 2px #000000;
+}
+

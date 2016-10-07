@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This XML document describes a contacts list -->
+
+<contacts>
+  <person id="1" type="supplier">
+    <first_name>John</first_name>
+    <last_name>Smith</last_name>
+    <company>Banana Computing</company>
+    <address1>1 Fiction Street</address1>
+    <address2>Imaginary Town</address2>
+    <country>Strangeland</country>
+    <postal_code>ABC 567</postal_code>
+    <last_contact>2005-05-27</last_contact>
+  </person>
+  <person id="2" type="customer">
+    <first_name>Belinda</first_name>
+    <last_name>Hardcastle</last_name>
+    <company>None</company>
+    <address1>1 Rose Road</address1>
+    <address2>Flowerville</address2>
+    <country>Betaland</country>
+    <postal_code>DDD 1178</postal_code>
+    <last_contact>2004-12-19</last_contact>
+  </person>
+  <person id="3" type="customer">
+    <first_name>George</first_name>
+    <last_name>Elliot</last_name>
+    <company>None</company>
+    <address1>21 Know Avenue</address1>
+    <address2>Greenston</address2>
+    <country>Brownland</country>
+    <postal_code>1279</postal_code>
+    <last_contact>2005-10-09</last_contact>
+  </person>
+  <person id="4" type="supplier">
+    <first_name>Janice</first_name>
+    <last_name>Jahore</last_name>
+    <company>Anzus Packaging</company>
+    <address1>145 Dragon Terrace</address1>
+    <address2>Imaginary Town</address2>
+    <country>Strangeland</country>
+    <postal_code>DDE 298</postal_code>
+    <last_contact>2006-01-31</last_contact>
+  </person>
+  <person id="5" type="customer">
+    <first_name>Tracey</first_name>
+    <last_name>Johnson</last_name>
+    <company>None</company>
+    <address1>11 Home Street</address1>
+    <address2>Flowerville</address2>
+    <country>Betaland</country>
+    <postal_code>DDD 1162</postal_code>
+    <last_contact>2004-05-08</last_contact>
+  </person>
+  <person id="6" type="supplier">
+    <first_name>Janus</first_name>
+    <last_name>Jalopy</last_name>
+    <company>Grodgen Loaders</company>
+    <address1>687 Long Road</address1>
+    <address2>Bigtown</address2>
+    <country>Hugeland</country>
+    <postal_code>FTY 5682</postal_code>
+    <last_contact>2006-02-19</last_contact>
+  </person>
+</contacts>

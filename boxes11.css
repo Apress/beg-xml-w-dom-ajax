@@ -1,0 +1,36 @@
+title{
+  display:block;
+  position: absolute;
+  top:5px;
+  left: 5px;
+  color: #FFFFFF;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #000000;
+  z-index: 5;
+ }
+paragraph {
+  display:block;
+  position: absolute;
+  top:20px;
+  left: 10px;
+  padding:10px;
+  border:solid 2px #A3A3A3;
+  margin: 10px;
+  background-color: #FFFFFF;
+}
+pullQuote {
+  display:block;
+  position: absolute;
+  top:80px;
+  left: 360px;
+  font-weight:bold;
+  text-align: center;
+  border:solid 2px #CCCCCC;
+  padding:10px;
+  background-color: #EBEBEB;
+  z-index: 10;
+}
+
+
+

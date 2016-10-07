@@ -1,0 +1,30 @@
+paragraph1:first-letter {
+  float:left;
+  font-size:24pt;
+  font-style:italic;
+  font-weight:bold;
+  padding-right:4px;
+}
+paragraph2:first-line {
+  text-transform:uppercase;
+  font-weight:bold;
+}
+paragraph3:before {
+  font-weight:bold;
+  text-transform:uppercase;
+  content:"Text before paragraph 3 - ";
+}
+paragraph4:after {
+  content: url(lions.jpg);
+}
+paragraph3, paragraph4 {
+  display: block;
+}
+
+
+
+
+
+
+
+

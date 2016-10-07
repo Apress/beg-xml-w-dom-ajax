@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="planets5.xsl" ?>
+<neighbours>
+  <planet name="Venus">
+    <description>
+    Venus is the second planet from the sun and it has a thick layer of sulfuric acid clouds covering the entire planet.
+    </description>
+    <diameter> 12104 km (7505 miles)</diameter>
+    <moons> 0</moons>
+    <meanTemp> 482C (900F)</meanTemp>
+    <oneDay> 243.01 earth days</oneDay>
+    <oneYear> 224.7 earth days</oneYear>
+  </planet>
+  <planet name="Mars">
+    <description>
+    Mars is the fourth planet from the sun and is often called the red planet.
+    </description>
+    <diameter> 6796 km (4214 miles)</diameter>
+    <moons> 2</moons>
+    <meanTemp> -63C (-81F)</meanTemp>
+    <oneDay> 24.62 earth hours</oneDay>
+    <oneYear> 686.98 earth days</oneYear>
+  </planet>
+</neighbours>

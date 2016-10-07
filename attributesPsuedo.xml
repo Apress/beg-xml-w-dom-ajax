@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="attributesPsuedo.css"?>
+<document>
+  <paragraph 
+     keyWords="displaying, attribute, content, XML, CSS" 
+     xref="CSS2 Section 12.2">
+     This example demonstrates how we can use the <code>:before</code> and  
+     <code>:after</code> pseudo classes to add attribute content to a document.
+  </paragraph>
+</document>

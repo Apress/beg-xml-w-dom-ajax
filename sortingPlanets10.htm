@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <style>
+      body { font-family: verdana, arial, sans-serif; }
+      td { padding: 4px;  font-size: 12px;}
+    </style>
+    <script language="JavaScript">
+    
+      var xmlfile = "planets10.xml";
+      var xslfile = "planets10.xsl";
+      var xml, xsl;
+      
+      function init() {
+        xml = loadDocumentIE(xmlfile);
+        xsl = loadDocumentIE(xslfile);
+        document.getElementById("sortoutput").innerHTML = xml.transformNode(xsl);
+      }
+      
+      function loadDocumentIE(filename) {
+        var xmldocument = new ActiveXObject("Microsoft.XMLDOM");
+        xmldocument.async = false;
+        xmldocument.load(filename);
+        return xmldocument;
+      }
+      
+      function doTransform() {
+        document.getElementById("sortoutput").innerHTML = xml.transformNode(xsl);
+      }
+      
+      function orderBy(select, dataType) {
+        xsl = loadDocumentIE(xslfile);
+        var sortItem = xsl.getElementsByTagName("xsl:sort")[0];
+        sortItem.setAttribute("select", select);
+        sortItem.setAttribute("data-type", dataType);
+        doTransform();
+      }
+      
+  </script>
+  </head>
+  <body onLoad="init();">
+    <h1>Table of planet information</h1>
+    <div id="sortoutput">Sort output goes here</div>
+    <form>
+      <input type="button" onClick="orderBy('@name', 'text');" value="Order by name" />
+      <input type="button" onClick="orderBy('positionFromSun/text()', 'number');" value="Order by position from the sun" />
+      <input type="button" onClick="orderBy('substring-before(meanTemp/text(), \'C\')', 'number');" value="Order by mean temp" />
+    </form>
+  </body>
+</html>

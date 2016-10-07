@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-flat-20030114.dtd">
+<svg width="20cm" height="4cm" viewBox="0 0 400 400"
+     xmlns="http://www.w3.org/2000/svg">
+  <desc>This SVG document contains rainbow text</desc>
+  <g>
+    <defs>
+      <linearGradient id="RedBlueGradient" gradientUnits="objectBoundingBox">
+        <stop offset="0%" stop-color="#F00" />
+        <stop offset="100%" stop-color="#00F" />
+      </linearGradient>
+    </defs>
+    <text x="-600"
+          y="200"
+          font-size="128"
+          fill="white"
+          stroke="url(#RedBlueGradient)"
+          stroke-width="5">
+      SVG creates gradient text!
+    </text>
+  </g>
+</svg>
+

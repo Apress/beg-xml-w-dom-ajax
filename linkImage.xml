@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="linkImage.css"?>
+<document xmlns:xlink="http://www.w3.org/1999/xlink">
+  <page>
+    <title>Images With XLink</title>
+    <paragraph>This 
+      <link xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" 
+      xlink:title="Lions" xlink:href="lions.jpg">link
+      </link>
+      should embed an image but doesn't.
+    </paragraph>
+  </page>
+</document>

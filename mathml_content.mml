@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE math PUBLIC "-//W3C//DTD MathML 2.0//EN" 
+"http://www.w3.org/TR/MathML2/dtd/mathml2.dtd">
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+   <apply>
+     <plus/>
+     <ci>10</ci>
+     <apply>
+       <power/>
+       <apply>
+         <times/>
+         <ci>x</ci>
+         <ci>y</ci>
+       </apply>
+       <cn>4</cn>
+     </apply>
+   </apply>
+ </mrow>
+</math>
+

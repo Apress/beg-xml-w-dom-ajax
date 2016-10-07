@@ -1,0 +1,24 @@
+title{
+  display:block;
+  color: #000000;
+  font-size: 30px;
+  font-weight: bold;
+}
+paragraph {
+  display:block;
+  padding:10px;
+  margin: 10px;
+}
+image1 {
+  display:block;
+  margin:10px;
+  width:282px;
+  height:187px;
+  background-image:url(lions.jpg)
+}
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="boxes4.css"?>
+<page>
+	<pageNumber>Page 1</pageNumber>
+	<paragraph>
+		Here is some text, 
+		<reference>and a reference,
+		<footnote>1</footnote></reference> 
+		then
+		<important>some important text</important>.
+  </paragraph>
+	<paragraph>
+	  Here is more text, 
+	  <reference>another reference,
+	 <footnote>2</footnote> </reference> 
+	 and
+	  <important>more important text</important>.
+  </paragraph>
+</page>

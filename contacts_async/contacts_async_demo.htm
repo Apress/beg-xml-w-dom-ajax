@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<title>Contacts Example</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<script language="javascript" src="browserDetect.js"></script>
+		<script language="javascript" src="xDOM.js"></script>
+		<script type="text/javascript">
+      var oXMLFromURL;
+      var oXSLT;
+      var oXSLTDisplay;
+  
+      function runInit() {
+        //Check that xDOM has initialised properly
+        if (blnFailed){
+          alert(strFailedReason);
+        }
+        else {
+          //Proceed with page
+          doLoadXMLFromURL();
+        }
+      }
+          
+      function doLoadXMLFromURL() {
+        oXMLFromURL = xDOM.createDOMDocument();
+        oXMLFromURL.onreadystatechange = onLoad_LoadXMLFromURL;
+        oXMLFromURL.load("contacts_summary.xml");
+      }
+          
+      function onLoad_LoadXMLFromURL() {
+        if (oXMLFromURL.readyState == 4) {
+          //Load Initial XSLT Document to Build List
+          oXSLT=xDOM.createDOMDocument();
+          oXSLT.onreadystatechange = onLoad_XSLTDOM;
+          oXSLT.load("select.xslt");
+          
+          //Load XSLT to Display Property in html
+          oXSLTDisplay=xDOM.createDOMDocument();
+          oXSLTDisplay.onreadystatechange = onLoad_XSLTDOM;
+          oXSLTDisplay.load("display.xslt");
+        }
+      }
+       
+      function onLoad_XSLTDOM() {	
+        var strOutput;
+        var oOutput = xDOM.createDOMDocument();
+        if (oXSLT.readyState == 4) {
+          strOutput = oXMLFromURL.transformNode(oXSLT);
+          document.getElementById("contactDetails").innerHTML = strOutput;
+            }
+        }
+          
+    function showPerson(intPersonID){
+      oXMLDetailFromURL = xDOM.createDOMDocument();
+      oXMLDetailFromURL.onreadystatechange = onLoad_XMLDetail;
+  
+      //Load the right XML document
+      oXMLDetailFromURL.load("contacts" + intPersonID + ".xml");    
+   }
+   
+    function onLoad_XMLDetail() {
+      var strOutput;
+      
+      if (oXMLDetailFromURL.readyState == 4) {
+        //Run the stylesheet and output to the browser.
+        strOutput = oXMLDetailFromURL.transformNode(oXSLTDisplay);
+        document.getElementById("displayDetails").innerHTML = strOutput;
+      }
+    }
+
+      
+  </script>
+	</head>
+	<body onLoad="runInit()">
+		<p><div id="contactDetails">Loading...</div>
+		</p>
+		<p><div id="displayDetails"></div>
+		</p>
+	</body>
+</html>

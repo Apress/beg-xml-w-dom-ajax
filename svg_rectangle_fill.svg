@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<svg width="12cm" height="4cm" viewBox="0 0 1200 400"
+xmlns="http://www.w3.org/2000/svg">
+  <desc>A simple rectangle with a red border and a gradient fill</desc>
+  <g>
+    <defs>
+      <linearGradient id="RedGradient" gradientUnits="objectBoundingBox">
+        <stop offset="0%" stop-color="#F00" />
+        <stop offset="100%" stop-color="#FFF" />
+      </linearGradient>
+    </defs>
+    <rect x="10"
+          y="10"
+          width="200"
+          height="200"
+          fill="url(#RedGradient)"
+          stroke="red"
+          stroke-width="10"/>
+  </g>
+</svg>
+
+

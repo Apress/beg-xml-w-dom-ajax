@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="imageCSS.css"?>
+<document>
+  <page>
+    <image1 />
+    <title>Adding an Image in XML</title>
+    <paragraph>This page includes a lion picture.</paragraph>
+  </page>
+</document>
+

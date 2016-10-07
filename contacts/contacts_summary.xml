@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This XML document describes a contacts list -->
+
+<contacts>
+  <person id="1" type="supplier">
+    <first_name>John</first_name>
+    <last_name>Smith</last_name>
+  </person>
+  <person id="2" type="customer">
+    <first_name>Belinda</first_name>
+    <last_name>Hardcastle</last_name>
+  </person>
+  <person id="3" type="customer">
+    <first_name>George</first_name>
+    <last_name>Elliot</last_name>
+  </person>
+  <person id="4" type="supplier">
+    <first_name>Janice</first_name>
+    <last_name>Jahore</last_name>
+  </person>
+  <person id="5" type="customer">
+    <first_name>Tracey</first_name>
+    <last_name>Johnson</last_name>
+  </person>
+  <person id="6" type="supplier">
+    <first_name>Janus</first_name>
+    <last_name>Jalopy</last_name>
+  </person>
+</contacts>

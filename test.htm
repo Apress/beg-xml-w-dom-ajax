@@ -1,0 +1,270 @@
+<html>
+	<head>
+		<title>xDOM Test Page</title>
+		<style>
+      .divStyle {
+        width: 98%; 
+        margin: 10px;
+        padding: 4px;
+        border: 1px solid #000000;
+        font-size: 12px; 
+        font-family: Arial, Helvetica, sans-serif; 
+        color: #000000; 
+        background: #EDEDED; 
+        font-weight: normal; 
+      }
+      .flag { 
+        color: #000000; 
+        font-weight: bold; 
+      }
+    </style>
+		<script language="javascript" src="browserDetect.js"></script>
+		<script language="javascript" src="xDOM.js"></script>
+		<script type="text/javascript">
+      var oXMLFromURL;
+      var oXMLFromURLInvalid;
+      var oXMLFromString;
+      var oXSLT;
+
+     function runTest() {
+        //Check that xDOM has initialised properly
+        if (blnFailed){
+          alert(strFailedReason);
+        }
+        else {
+          //Proceed with page
+          doCreateDOMDocument();
+          doLoadXMLFromURL();
+          doLoadInvalidXMLFromURL();
+          doLoadXMLFromString();
+          }
+       }
+        
+        function doCreateDOMDocument() {
+          var oDOMDocument;	
+          var oElement;
+          try {
+            //Create a DOM Document
+            oDOMDocument = xDOM.createDOMDocument();
+            //Check that we have actually created a DOM Document object by calling a method on it.
+            oElement = oDOMDocument.createElement("DVD");
+            document.getElementById("divCreateDOMDocument").innerHTML = "Yes"
+          }
+          catch (oException) {
+            document.getElementById("divCreateDOMDocument").innerHTML = "No"
+          }
+        }
+        
+        function doLoadXMLFromURL() {
+            oXMLFromURL = xDOM.createDOMDocument();
+            //Bind an event handler to the onreadystatechange event
+            //Event handler is defined below
+            oXMLFromURL.onreadystatechange = onLoad_LoadXMLFromURL;
+            //Call load. This will return immediatly and we wait for the event handler to deal with the loaded document 
+            oXMLFromURL.load("DVD.xml");
+        }
+        
+        function onLoad_LoadXMLFromURL() {
+          //Ignore the event unless the load has completed. i.e. readState of 4
+          if (oXMLFromURL.readyState == 4) {                
+            var strXML = doReplace(oXMLFromURL.xml);
+            document.getElementById("divXMLFromURLRawXML").innerHTML = strXML;
+            document.getElementById("divXMLFromURLParseError").innerHTML = oXMLFromURL.parseError;
+            
+            //Load XSLT Document
+            oXSLT=xDOM.createDOMDocument();
+            oXSLT.onreadystatechange = onLoad_XSLtdOM;
+            oXSLT.load("test.xslt");
+				
+            //Run iteration example
+            doIterationExample();
+            //Run elements example
+            doGetElementsExample();
+            //Run attributes example
+            doGetAttributesExample();
+            }
+        }
+        
+        function onLoad_XSLtdOM() {				
+          if (oXSLT.readyState == 4) {
+            var strOutput;
+            var oOutput = xDOM.createDOMDocument();
+            strOutput = oXMLFromURL.transformNode(oXSLT);
+            oXMLFromURL.transformNodeToObject(oXSLT,oOutput);
+            document.getElementById("divTransformNodeXSLT").innerHTML = doReplace(oXSLT.xml);
+            document.getElementById("divTransformNodeResult").innerHTML = strOutput;
+            
+            //Transform part of the source tree.
+            strOutput = oXMLFromURL.getElementsByTagName("DVD")[0].transformNode(oXSLT);
+            document.getElementById("divTransformNodePartOfTree").innerHTML = strOutput;
+            }
+        }
+ 		 
+      function doIterationExample() {
+          //Demonstrate iterating through the DOM by using a for loop.
+          var strOutput;
+          strOutput = "";
+          for (var node=oXMLFromURL.documentElement.firstChild; node != null; node = node.nextSibling) {
+            strOutput = strOutput + node.nodeName + "<br/>";
+          }
+          document.getElementById("divIterateDOM").innerHTML = strOutput;
+        }
+      
+      function doGetElementsExample(){
+         var strOutput;
+        strOutput = "";
+        var oNodeList;
+        oNodeList = oXMLFromURL.documentElement.getElementsByTagName("title");
+        for (var i=0; i < oNodeList.length; i++) {
+          ///Output the value of the text in the title element
+          strOutput = strOutput + oNodeList[i].firstChild.nodeValue + "<br/>";
+        }
+        document.getElementById("divElementDOM").innerHTML = strOutput;
+      }
+      function doGetAttributesExample() {
+        //Iterate through the DVD attributes
+        var strOutput;
+        strOutput = "";
+        var oNodeList;
+        oNodeList = oXMLFromURL.documentElement.getElementsByTagName("DVD");
+        for (var i=0; i < oNodeList.length; i++) {
+          //Only try and get the attributes if we are dealing with a DVD node
+          //Output the value of the id attribute
+          strOutput = strOutput + oNodeList[i].attributes.getNamedItem("id").value + "<br/>";
+        }
+        document.getElementById("divAttributeDOM").innerHTML = strOutput;
+        }
+
+        function doLoadInvalidXMLFromURL() {
+            oXMLFromURLInvalid = xDOM.createDOMDocument();
+            oXMLFromURLInvalid.onreadystatechange = onLoad_LoadInvalidXMLFromURL;
+            oXMLFromURLInvalid.load("dvd_not_well_formed.xml");
+        }
+        
+        function onLoad_LoadInvalidXMLFromURL() {
+            if (oXMLFromURLInvalid.readyState == 4) {             
+                var strXML = doReplace(oXMLFromURLInvalid.xml);
+                document.getElementById("divInvalidXMLFromURLRawXML").innerHTML = strXML;
+                document.getElementById("divInvalidXMLFromURLParseError").innerHTML = oXMLFromURLInvalid.parseError;                 
+            }
+        }
+        
+        function doLoadXMLFromString() {
+            oXMLFromString = xDOM.createDOMDocument();
+            oXMLFromString.onreadystatechange = onLoad_LoadXMLFromString;
+            oXMLFromString.loadXML('<?xml version="1.0"?><library><DVD id="4"><title>The Constant Gardener</title></DVD></library>');
+        }
+        
+        function onLoad_LoadXMLFromString() {
+            if (oXMLFromString.readyState == 4) {
+            var strXML = doReplace(oXMLFromString.xml);
+            document.getElementById("divXMLFromStringRawXML").innerHTML = strXML;
+            document.getElementById("divXMLFromStringParseError").innerHTML = oXMLFromString.parseError;
+          
+          //Test adding and removing nodes from this DOM
+          
+          //First create and add a new element
+          var oElement= oXMLFromString.createElement("DVD");
+          //Next create an attribute, set its value and add it to the attributes of oNewNode
+         var oAttribute = oXMLFromString.createAttribute("id");
+          oAttribute.value = "5";
+          oElement.attributes.setNamedItem(oAttribute);
+          //Finally add a text node to the new DVD element and add it to the document
+         oElement.appendChild(oXMLFromString.createTextNode("Pride and Prejudice"));
+         oXMLFromString.documentElement.appendChild(oElement);
+          //Output to the HTML document
+          strXML = doReplace(oXMLFromString.xml);
+          document.getElementById("divXMLFromStringNodeAdded").innerHTML =	strXML
+          
+          //Now remove this node from the document and use it to replace the first DVD node
+          var oRootNode = oXMLFromString.documentElement
+          var oOldNode = oRootNode.removeChild(oRootNode.lastChild);
+          oRootNode.replaceChild(oOldNode,oRootNode.firstChild);
+          //Output to the HTML document
+          strXML = doReplace(oXMLFromString.xml);
+          document.getElementById("divXMLFromStringNodeReplaced").innerHTML =	strXML			
+            }
+        }
+        
+   
+      function doReplace(strXML) {
+        var strOut = "";
+        var strL = /</g;
+              var strG = />/g;
+              var strAmp = /&/g;
+              strOut = strXML;
+              strOut = strOut.replace(strAmp, "&amp;");
+        strOut = strOut.replace(strL, "&lt;");
+        strOut = strOut.replace(strG, "&gt;");
+        
+        return strOut;
+      }
+    
+</script>
+	</head>
+	<body onload="runTest()">
+    <div class="divStyle">
+      <span class="flag">Create a DOM Document</span><br/>
+      DOM Document Created?
+      <div id="divCreateDOMDocument"></div> 
+    </div>
+    
+    <div class="divStyle">
+      <span class="flag">Load XML From URL</span><br/>
+      XML: <br/>
+      <div id="divXMLFromURLRawXML"></div>
+      Parse error: <span id="divXMLFromURLParseError"></span>
+    </div>
+    
+    <div class="divStyle">
+      <span class="flag">XSLT TransformNode (using above XML)</span><br/>
+      XSLT:<br/>
+       <div id="divTransformNodeXSLT"></div>
+       transformNode Result:<br/>
+       <div id="divTransformNodeResult"></div>
+       transformNode with the first DVD:<br/>
+       <div id="divTransformNodePartOfTree"></div>
+    </div>
+    
+    <div class="divStyle">
+      <span class="flag">Iterate Through DOM</span><br/>
+      nodeName for each node in documentElement.childNodes: <br/>
+      <div id="divIterateDOM"></div>
+    </div>
+ 
+   <div class="divStyle">
+      <span class="flag">Get title elements</span><br/>
+      nodeValue for each title element in the document: <br/>
+      <div id="divElementDOM"></div>
+    </div>
+    
+    <div class="divStyle">
+      <span class="flag">Get id attributes</span><br/>
+      id attribute from each DVD element in the document: <br/>
+      <div id="divAttributeDOM"></div>
+    </div>
+ 
+     <div class="divStyle">
+      <span class="flag">Load Invalid XML From URL</span><br/>
+      XML: <br/>
+      <div id="divInvalidXMLFromURLRawXML"></div>
+      Parse error: <span id="divInvalidXMLFromURLParseError"></span>
+    </div>
+    
+    <div class="divStyle">
+      <span class="flag">Load XML From String</span><br/>
+      XML: <br/>
+      <div id="divXMLFromStringRawXML"></div>
+      Parse error: <span id="divXMLFromStringParseError"></span>
+    </div>
+    
+    <div class="divStyle">
+      <span class="flag">Manipulate XML String</span><br/>
+      Adding new DVD:<br/>
+      <div id="divXMLFromStringNodeAdded"></div>
+      Removing and replacing node:<br/>
+      <div id="divXMLFromStringNodeReplaced"></div>      
+    </div>
+ 
+	</body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This XML document describes a contacts list -->
+
+<contacts>
+  <person id="4" type="supplier">
+    <first_name>Janice</first_name>
+    <last_name>Jahore</last_name>
+    <company>Anzus Packaging</company>
+    <address1>145 Dragon Terrace</address1>
+    <address2>Imaginary Town</address2>
+    <country>Strangeland</country>
+    <postal_code>DDE 298</postal_code>
+    <last_contact>2006-01-31</last_contact>
+  </person>
+</contacts>

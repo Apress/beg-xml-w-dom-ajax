@@ -1,0 +1,19 @@
+h1 {
+    font-weight: bold;
+    font-size: 24px;
+	text-align: center;
+}
+h2 {
+    font-weight: bold;
+    font-size: 20px;
+	text-align: center;
+}
+hr {
+	width: 100%;
+}
+.centered {
+	text-align: center;
+}
+.footer {
+	text-align: center;
+}

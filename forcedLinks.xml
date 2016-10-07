@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="forcedLinks.css"?>
+<document xmlns:html="http://www.w3.org/TR/REC-html40">
+  <page>
+    <title>Forcing XHTML Links</title>
+    <paragraph>The 
+    <html:a href="http://www.apress.com" target="_blank">link</html:a>
+    will open in a new window.
+    </paragraph>
+  </page>
+</document>
+

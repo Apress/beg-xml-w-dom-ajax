@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="boxes8.css"?>
+<page>
+	<history>This text is the remnants of a passage from Cicero's de Finibus Bonorum et Malorum,
+    originally written in 45 BC.
+  </history>
+	<pullQuote>
+    This text became the standard dummy text of the printing industry when an unknown
+    printer used it in the making of a type specimen book in the 1500s.
+  </pullQuote>
+	<paragraph>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+   nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
+   wisi enim ad minim veniam, quis nostrud exercitation ulliam corper suscipit
+   lobortis nisl ut aliquip ex ea commodo consequat. Duis autem veleum iriure dolor
+   in hendrerit in vulputate velit esse molestie consequat, vel willum lunombro
+   dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
+   dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te
+   feugait nulla facilisi. 
+  </paragraph>
+</page>

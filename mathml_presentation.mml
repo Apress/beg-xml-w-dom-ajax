@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE math PUBLIC "-//W3C//DTD MathML 2.0//EN"
+"http://www.w3.org/TR/MathML2/dtd/mathml2.dtd">
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+   <mn>10</mn>
+   <mo>+</mo>
+   <msup>
+     <mfenced>
+       <mrow>
+         <mi>x</mi>
+         <mo>*</mo>
+         <mi>y</mi>
+       </mrow>
+     </mfenced>
+     <mn>4</mn>
+   </msup>
+ </mrow>
+</math>

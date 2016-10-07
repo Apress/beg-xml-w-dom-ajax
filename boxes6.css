@@ -1,0 +1,17 @@
+paragraph {
+  display:block;
+  padding:10px;
+  border:solid 2px #A3A3A3;
+  margin: 10px;
+}
+pullQuote {
+  float:right;
+  width:20%;
+  font-style:italic;
+  border:solid 1px #CCCCCC;
+  padding:10px;
+  margin:10px;
+}
+
+
+

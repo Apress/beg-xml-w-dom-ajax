@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="planets.xsl" ?>
+<html>
+  <head>
+  <title>A simple HTML page</title>
+  <style type="text/css">
+    body { font-family: Verdana, Arial, sans-serif; font-size: 12px;}
+  </style>
+  </head>
+<body>
+  <h1>Our neighbours</h1>
+  <h2>Venus</h2>
+  Venus is the second planet from the sun and it has a thick layer of sulfuric acid clouds covering the entire planet.
+  <ul>
+    <li><strong>Diameter</strong> 12104 km (7505 miles)</li>
+    <li><strong>Moons:</strong> 0</li>
+    <li><strong>Mean temperature:</strong> 482C (900F)</li>
+    <li><strong>Length of one day:</strong> 243.01 earth days</li>
+    <li><strong>Length of one year:</strong> 224.7 earth days</li>
+  </ul> 
+  <h2>Mars</h2>
+    Mars is the fourth planet from the sun and is often called the red planet.
+  <ul>
+    <li><strong>Diameter</strong> 6796 km (4214 miles)</li>
+    <li><strong>Moons:</strong> 2</li>
+    <li><strong>Mean temperature:</strong> -63C (-81F)</li>
+    <li><strong>Length of one day:</strong> 24.62 earth hours</li>
+    <li><strong>Length of one year:</strong> 686.98 earth days</li>
+  </ul>
+   </body>
+</html>

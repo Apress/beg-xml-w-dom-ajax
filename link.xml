@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="link.css"?>
+<document xmlns:xlink="http://www.w3.org/1999/xlink">
+  <page>
+    <title>Linking With XLink</title>
+    <paragraph>This 
+      <link xlink:type="simple" xlink:show="new" xlink:actuate="onRequest" 
+      xlink:title="Visit Apress" xlink:href="http://www.apress.com">link
+      </link>
+      will open in a new page.
+    </paragraph>
+  </page>
+</document>

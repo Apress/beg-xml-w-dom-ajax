@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-flat-20030114.dtd">
+<svg width="16cm" height="9cm" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>Mars Travel introduction</desc>
+	<image x="650" y="100" width="250" height="250" xlink:href="mars.jpg"/>
+	<rect width="300" height="100" fill="rgb(200,200,200)" fill-opacity="0.25">
+		<animate attributeName="y" attributeType="XML" from="500" to="-100" dur="4s" repeatCount="indefinite" fill="freeze"/>
+	</rect>
+	<rect width="300" height="400" fill="rgb(200,200,200)" fill-opacity="0.5">
+		<animate attributeName="y" attributeType="XML" from="600" to="-400" dur="14s" repeatCount="indefinite" fill="freeze"/>
+	</rect>
+	<rect width="300" height="14" fill="rgb(200,200,200)" fill-opacity="0.25">
+		<animate attributeName="y" attributeType="XML" from="600" to="-40" dur="3s" repeatCount="indefinite" fill="freeze"/>
+	</rect>
+	<rect width="300" height="4" fill="rgb(200,200,200)" fill-opacity="0.75">
+		<animate attributeName="y" attributeType="XML" from="500" to="-4" dur="2s" repeatCount="indefinite" fill="freeze"/>
+	</rect>
+	<rect width="300" height="300" fill="rgb(200,200,200)" fill-opacity="0.75">
+		<animate attributeName="y" attributeType="XML" from="-300" to="500" dur="8s" repeatCount="indefinite" fill="freeze"/>
+	</rect>
+	<rect width="300" height="14" fill="rgb(200,200,200)" fill-opacity="0.75">
+		<animate attributeName="y" attributeType="XML" from="-90" to="510" dur="3s" repeatCount="indefinite" fill="freeze"/>
+	</rect>
+	<rect width="300" height="4" fill="rgb(200,200,200)" fill-opacity="0.75">
+		<animate attributeName="y" attributeType="XML" from="-100" to="500" dur="2s" repeatCount="indefinite" fill="freeze"/>
+	</rect>
+	<!-- Default text -->
+	<text x="295" y="575" text-anchor="end">Scalable Vector Graphics</text>
+	<text x="295" y="590" text-anchor="end">by Mars Travel</text>
+	<!-- Separator -->
+	<line x1="300" y1="0" x2="300" y2="600" stroke-width="2" stroke="gray"/>
+	<line x1="305" y1="0" x2="305" y2="600" stroke-width="1" stroke="gray"/>
+	<text x="1000" y="200" font-size="32" font-style="italic" font-weight="bold" font-family="verdana" fill="#C65B2E">
+		<animate attributeName="x" attributeType="XML" begin="0s" dur="2s" fill="freeze" from="1000" to="340"/>
+    Mars Travel
+  </text>
+	<text x="1000" y="224" font-size="24" font-style="italic" font-weight="bold" font-family="verdana" fill="#C65B2E">
+		<animate attributeName="x" attributeType="XML" begin="2.5s" dur="2s" fill="freeze" from="1000" to="340"/>
+    Out of this world!
+  </text>
+	<a xlink:href="http://www.apress.com/">
+		<text x="750" y="467" fill="#C65B2E" font-weight="bold" font-family="verdana" font-size="24">ENTER >>></text>
+	</a>
+</svg>
